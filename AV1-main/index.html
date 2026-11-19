@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de gestão e registro de candidaturas do PMauricio.">
+    <title>PMauricio 94 | Gestão de Candidaturas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="appbar">
+        <div class="appbar__inner">
+            <a class="brand" href="#topo" aria-label="PMauricio - início">
+                <span class="brand__mark">94</span>
+                <span class="brand__text">
+                    <strong>PMauricio</strong>
+                    <small>Gestão de candidaturas</small>
+                </span>
+            </a>
+            <div class="appbar__status">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span id="statusCarregamento">Carregando filiados...</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="shell" id="topo">
+        <section class="overview-panel">
+            <div class="overview-copy">
+                <span class="kicker">Chapa eleitoral</span>
+                <h1>Registro de candidaturas</h1>
+                <p>Selecione os filiados, defina cargo e número, revise a composição e consolide o arquivo final.</p>
+            </div>
+            <div class="overview-metrics" aria-label="Resumo da chapa">
+                <article class="metric">
+                    <span>Filiados</span>
+                    <strong id="statFiliados">0</strong>
+                </article>
+                <article class="metric">
+                    <span>Registrados</span>
+                    <strong id="statCandidaturas">0</strong>
+                </article>
+                <article class="metric">
+                    <span>Cargos ocupados</span>
+                    <strong id="statCargosPreenchidos">0</strong>
+                </article>
+            </div>
+        </section>
+
+        <nav class="workflow" aria-label="Etapas do cadastro">
+            <div id="stepFiliado" class="workflow__step is-active"><span>1</span><strong>Selecionar filiado</strong></div>
+            <div class="workflow__line"></div>
+            <div id="stepCandidatura" class="workflow__step"><span>2</span><strong>Definir candidatura</strong></div>
+            <div class="workflow__line"></div>
+            <div id="stepChapa" class="workflow__step"><span>3</span><strong>Consolidar chapa</strong></div>
+        </nav>
+
+        <section class="workspace">
+            <section class="panel roster-panel" aria-labelledby="tituloFiliados">
+                <div class="panel__header">
+                    <div>
+                        <span class="section-index">01</span>
+                        <h2 id="tituloFiliados">Filiados disponíveis</h2>
+                    </div>
+                    <span class="soft-badge"><span id="sidebarFiliados">0</span> filiados</span>
+                </div>
+
+                <div class="roster-tools">
+                    <label class="search-box" for="buscaFiliado">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+                        <input type="search" id="buscaFiliado" placeholder="Buscar filiado" autocomplete="off">
+                    </label>
+                </div>
+
+                <div id="listaFiliados" class="roster-grid" role="list" aria-live="polite"></div>
+                <div id="estadoVazioBusca" class="search-empty" hidden>Nenhum filiado encontrado.</div>
+            </section>
+
+            <aside class="panel editor-panel" aria-labelledby="tituloEditor">
+                <div class="panel__header panel__header--editor">
+                    <div>
+                        <span class="section-index">02</span>
+                        <h2 id="tituloEditor">Definir candidatura</h2>
+                    </div>
+                </div>
+
+                <div id="editorVazio" class="editor-empty">
+                    <div class="editor-empty__icon" aria-hidden="true">94</div>
+                    <h3>Selecione um filiado</h3>
+                    <p>Escolha um nome ao lado para iniciar o registro.</p>
+                </div>
+
+                <form id="formCandidatura" class="candidate-form" hidden novalidate>
+                    <div class="selected-person">
+                        <div class="selected-person__photo">
+                            <img id="infoFoto" src="" alt="">
+                        </div>
+                        <div>
+                            <span class="micro-label">Filiado selecionado</span>
+                            <h3 id="infoNome">-</h3>
+                            <button type="button" id="btnTrocarFiliado" class="text-button">Trocar filiado</button>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="lstCargos">Cargo eletivo</label>
+                        <select id="lstCargos">
+                            <option value="">Selecione o cargo</option>
+                            <option value="Presidente">Presidente</option>
+                            <option value="Governador(a)">Governador(a)</option>
+                            <option value="Senador(a)">Senador(a)</option>
+                            <option value="Deputado(a) Federal">Deputado(a) Federal</option>
+                            <option value="Deputado(a) Estadual">Deputado(a) Estadual</option>
+                        </select>
+                        <span id="hintCargo" class="field-hint"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="txtNumeroCandidato">Número eleitoral</label>
+                        <div class="number-control">
+                            <input type="text" id="txtNumeroCandidato" inputmode="numeric" autocomplete="off" placeholder="Selecione um cargo" disabled>
+                            <span id="numeroLength" class="number-length" aria-hidden="true"></span>
+                        </div>
+                        <span id="msgErroNumero" class="field-message" aria-live="polite"></span>
+                    </div>
+
+                    <div class="candidate-summary" aria-label="Resumo da candidatura">
+                        <div><span>Cargo</span><strong id="infoCargo">A definir</strong></div>
+                        <div><span>Número</span><strong id="infoNumero">—</strong></div>
+                    </div>
+
+                    <button type="submit" id="btnRegistrar" class="button button--primary button--full" disabled>
+                        Registrar candidatura
+                    </button>
+                    <button type="button" id="btnLimparSelecao" class="button button--quiet button--full">Cancelar seleção</button>
+                    <span id="msgFeedbackAcao" class="form-feedback" aria-live="polite"></span>
+                </form>
+            </aside>
+        </section>
+
+        <section class="panel slate-panel" aria-labelledby="tituloChapa">
+            <div class="panel__header panel__header--slate">
+                <div>
+                    <span class="section-index">03</span>
+                    <h2 id="tituloChapa">Chapa registrada</h2>
+                </div>
+                <span id="contadorRegistros" class="soft-badge">0 registrados</span>
+            </div>
+
+            <div class="role-occupancy" aria-label="Ocupação dos cargos">
+                <div class="role-chip"><span>Presidente</span><strong id="quotaPresidente">0/1</strong></div>
+                <div class="role-chip"><span>Governador(a)</span><strong id="quotaGovernador">0/1</strong></div>
+                <div class="role-chip"><span>Senador(a)</span><strong id="quotaSenador">0/2</strong></div>
+                <div class="role-chip"><span>Dep. Federal</span><strong id="quotaDepFederal">0</strong></div>
+                <div class="role-chip"><span>Dep. Estadual</span><strong id="quotaDepEstadual">0</strong></div>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Filiado</th>
+                            <th>Cargo</th>
+                            <th>Número</th>
+                            <th><span class="sr-only">Ações</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaRegistrados"></tbody>
+                </table>
+            </div>
+
+            <div class="export-bar">
+                <div class="export-bar__copy">
+                    <div class="export-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2"/></svg>
+                    </div>
+                    <div>
+                        <strong>Arquivo final da chapa</strong>
+                        <span>PMauricio.json</span>
+                    </div>
+                </div>
+                <button type="button" id="btnEnviarTSE" class="button button--export">Gerar arquivo JSON</button>
+            </div>
+            <span id="msgFeedbackEnvio" class="form-feedback export-feedback" aria-live="polite"></span>
+        </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+</body>
+</html>

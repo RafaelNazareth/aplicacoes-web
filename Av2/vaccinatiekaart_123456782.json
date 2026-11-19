@@ -1,0 +1,204 @@
+{
+  "kind": {
+    "naam": "Mikael",
+    "geboortedatum": "2021-04-19",
+    "leeftijd": "5 jaar, 6 maanden",
+    "bsn": "123456782",
+    "susNummer": "100000000000007",
+    "wettelijkeVertegenwoordiger1": "Rafael",
+    "wettelijkeVertegenwoordiger2": ""
+  },
+  "vaccinaties": [
+    {
+      "vaccin": "BCG",
+      "dosis": 1,
+      "leeftijd": "Bij geboorte (enkele dosis)",
+      "status": "toegediend",
+      "datumToediening": "2021-04-25",
+      "batchnummer": "AB123",
+      "vaccinatielocatie": "ggd",
+      "vaccinator": "Lais"
+    },
+    {
+      "vaccin": "Hepatitis B",
+      "dosis": 1,
+      "leeftijd": "Bij geboorte (geboortedosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Penta (DTP + Hib + Hepatitis B)",
+      "dosis": 1,
+      "leeftijd": "2 maanden (1e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Penta (DTP + Hib + Hepatitis B)",
+      "dosis": 2,
+      "leeftijd": "4 maanden (2e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Penta (DTP + Hib + Hepatitis B)",
+      "dosis": 3,
+      "leeftijd": "6 maanden (3e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "IPV (Geïnactiveerd Poliovaccin)",
+      "dosis": 1,
+      "leeftijd": "2 maanden (1e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "IPV (Geïnactiveerd Poliovaccin)",
+      "dosis": 2,
+      "leeftijd": "4 maanden (2e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "IPV (Geïnactiveerd Poliovaccin)",
+      "dosis": 3,
+      "leeftijd": "6 maanden (3e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "IPV (Geïnactiveerd Poliovaccin)",
+      "dosis": 4,
+      "leeftijd": "15 maanden (booster)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Pneumokokkenvaccin 10-valent (PCV10)",
+      "dosis": 1,
+      "leeftijd": "2 maanden (1e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Pneumokokkenvaccin 10-valent (PCV10)",
+      "dosis": 2,
+      "leeftijd": "4 maanden (2e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Pneumokokkenvaccin 10-valent (PCV10)",
+      "dosis": 3,
+      "leeftijd": "12 maanden (booster)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Humaan Rotavirus (RV)",
+      "dosis": 1,
+      "leeftijd": "2 maanden (1e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Humaan Rotavirus (RV)",
+      "dosis": 2,
+      "leeftijd": "4 maanden (2e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Meningokokken C (geconjugeerd)",
+      "dosis": 1,
+      "leeftijd": "3 maanden (1e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Meningokokken C (geconjugeerd)",
+      "dosis": 2,
+      "leeftijd": "5 maanden (2e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Meningokokken C (geconjugeerd)",
+      "dosis": 3,
+      "leeftijd": "12 maanden (booster)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Covid-19",
+      "dosis": 1,
+      "leeftijd": "6 maanden (1e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Covid-19",
+      "dosis": 2,
+      "leeftijd": "7 maanden (2e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Covid-19",
+      "dosis": 3,
+      "leeftijd": "9 maanden (3e dosis - afhankelijk van de fabrikant)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Influenza (Griep)",
+      "dosis": 1,
+      "leeftijd": "Vanaf 6 maanden (jaarlijks; twee doses bij de eerste vaccinatie tot 8 jaar)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Gele koorts",
+      "dosis": 1,
+      "leeftijd": "9 maanden (1e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Gele koorts",
+      "dosis": 2,
+      "leeftijd": "4 jaar (booster)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "BMR (Bof, Mazelen, Rodehond)",
+      "dosis": 1,
+      "leeftijd": "12 maanden (1e dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "BMRV (Bof, Mazelen, Rodehond, Varicella)",
+      "dosis": 1,
+      "leeftijd": "15 maanden (enkele dosis - na de 1e dosis BMR)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "DTP (Difterie, Tetanus, Kinkhoest)",
+      "dosis": 1,
+      "leeftijd": "15 maanden (1e booster)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "DTP (Difterie, Tetanus, Kinkhoest)",
+      "dosis": 2,
+      "leeftijd": "4 jaar (2e booster)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Hepatitis A",
+      "dosis": 1,
+      "leeftijd": "15 maanden (enkele dosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "Waterpokken (monovalent)",
+      "dosis": 1,
+      "leeftijd": "4 jaar (boosterdosis)",
+      "status": "te laat"
+    },
+    {
+      "vaccin": "HPV (quadrivalent)",
+      "dosis": 1,
+      "leeftijd": "9 tot 14 jaar (enkele dosis)",
+      "status": "in afwachting"
+    },
+    {
+      "vaccin": "Meningokokken ACWY (geconjugeerd)",
+      "dosis": 1,
+      "leeftijd": "11 tot 14 jaar (enkele dosis of booster)",
+      "status": "in afwachting"
+    }
+  ],
+  "opgeslagenOp": "2026-11-13T00:01:56.178Z"
+}
